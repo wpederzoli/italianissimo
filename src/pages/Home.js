@@ -9,9 +9,15 @@ class Home extends Component {
         this.state = {
             showMenu: false,
             showFeatured: false,
+            reviews: []
         }
         this.toggleMenu = this.toggleMenu.bind(this)
         this.showSection = this.showSection.bind(this)
+        this.setReviews = this.setReviews.bind(this)
+    }
+
+    componentWillMount(){
+        this.setReviews()
     }
 
     componentDidMount() {
@@ -36,9 +42,12 @@ class Home extends Component {
         }
     }
 
-    test = () =>{
-        console.log('hola')
-        return <h1>nada</h1>
+    setReviews = async() =>{
+        const data = await fetch('http://localhost:1235/proxy?url=https%3A%2F%2Fmaps.googleapis.com%2Fmaps%2Fapi%2Fplace%2Fdetails%2Fjson%3Fplaceid%3DChIJ-RYfc0xszoURCj1q6uzndmM%26key%3DAIzaSyCHpN7D1O9uaVqFQ5lZ5hw48n-r3YEjMO0')
+        const response = await data.json()
+        this.setState({
+            reviews: response.result.reviews
+        })
     }
 
     render() {
@@ -51,7 +60,7 @@ class Home extends Component {
                 />
                 <Banner />
                 <Featured />
-                <Reviews /> 
+                <Reviews reviews={this.state.reviews} /> 
             </div>
         )
     }
