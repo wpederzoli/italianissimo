@@ -23,6 +23,7 @@ class Home extends Component {
     componentDidMount() {
         navbarEntranceAnimation()
         bannerEntranceAnimation()
+        console.log(this.state)
     }
 
 

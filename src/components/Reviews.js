@@ -1,5 +1,7 @@
 import React from 'react'
 import Carousel from 'nuka-carousel'
+import { Star } from '@material-ui/icons'
+import { getStarsFromRating } from '../helpers'
 
 const Reviews = ({ reviews }) => {
     return (
@@ -24,6 +26,13 @@ const Reviews = ({ reviews }) => {
                             return(
                                 <div>
                                     <h2 style={{ color: '#fff' }}>{review.author_name}</h2>
+                                    <div style={{ flexDirection: 'row' }}>
+                                        {
+                                            getStarsFromRating(review.rating).map((point) =>{
+                                                return <Star key={point} style={{ color: '#fff57e' }} />
+                                            })
+                                        }
+                                    </div>
                                 </div>
                             )
                         })
