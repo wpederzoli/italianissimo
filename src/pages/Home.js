@@ -17,7 +17,7 @@ class Home extends Component {
         this.setReviews = this.setReviews.bind(this)
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.setReviews()
     }
 
@@ -32,9 +32,9 @@ class Home extends Component {
             this.setState({ showMenu: true })
     }
 
-    showSection = (section, visible) =>{
+    showSection = (section, visible) => {
         console.log('this is running ' + visible)
-        switch(section){
+        switch (section) {
             case 'featured':
                 this.setState({ showFeatured: true })
                 break
@@ -43,7 +43,7 @@ class Home extends Component {
         }
     }
 
-    setReviews = async() =>{
+    setReviews = async () => {
         const data = await fetch('http://localhost:1235/proxy?url=https%3A%2F%2Fmaps.googleapis.com%2Fmaps%2Fapi%2Fplace%2Fdetails%2Fjson%3Fplaceid%3DChIJ-RYfc0xszoURCj1q6uzndmM%26key%3DAIzaSyCHpN7D1O9uaVqFQ5lZ5hw48n-r3YEjMO0')
         const response = await data.json()
         this.setState({
@@ -62,10 +62,18 @@ class Home extends Component {
                 <Banner />
                 <Featured />
                 <Reviews reviews={this.state.reviews} />
-                <Footer 
-                    leftElements={[<p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', padding: 3 }}>Italianissimo 2018</p>] }
-                    centerElements={[<FontAwesome name="facebook" size="2x" />]}
-                /> 
+                <Footer
+                    leftElements={[<p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', padding: 3 }}>Italianissimo© 2018</p>]}
+                    centerElements={[
+                        <a href="#">
+                            <FontAwesome name="facebook" style={{ color: '#fff', fontSize: 15 }} />
+                        </a>
+                    ]}
+                    rightElements={[
+                        <FontAwesome name="phone" style={{ color: '#fff', fontSize: 15 }} />,
+                        <p style={{ color: '#fff', textAlign: 'center', margin:'0 auto' }}>(735)6-13-28</p>
+                    ]}
+                />
             </div>
         )
     }
