@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 
 const Footer = ({ leftElements, centerElements, rightElements }) => {
-    const { footerContainerStyle, footerElementsContainerStyle, footerCenterElementsStyle, leftFooterElementsStyle } = styles
+    const { footerContainerStyle, footerElementsContainerStyle } = styles
     return (
         <Grid container style={footerContainerStyle}>
             <Grid item lg={4} md={4} xs={4}>
