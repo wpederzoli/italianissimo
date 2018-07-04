@@ -6,24 +6,29 @@ const Footer = ({ leftElements, centerElements, rightElements }) => {
     return (
         <Grid container style={footerContainerStyle}>
             <Grid item lg={4} md={4} xs={4}>
-                {
-                    leftElements.map((el, key) =>{
-                        return <div key={key}>{el}</div>
-                    })
-                }
-            </Grid>
-            <Grid item lg={4} md={4} xs={4} style={{ textAlign: 'center' }}>
-                {
-                    centerElements.map((el, key) => {
-                        return <div key={key}>{el}</div>
-                    })
-                }
+                <Grid container style={footerElementsContainerStyle}>
+                    {leftElements ?
+                        leftElements.map((el, key) => {
+                            return <Grid item key={key} style={{ margin: '0 auto' }}>{el}</Grid>
+                        }) :
+                        null
+                    }
+                </Grid>
             </Grid>
             <Grid item lg={4} md={4} xs={4}>
-                <Grid container style={{ textAlign: 'center', alignSelf: 'center' }}>
+                <Grid container style={footerElementsContainerStyle}>
                     {
-                        rightElements.map((element, key) =>{
-                            return <Grid item key={key}>{element}</Grid>
+                        centerElements.map((el, key) => {
+                            return <Grid item key={key} style={{ margin: '0 auto' }}>{el}</Grid>
+                        })
+                    }
+                </Grid>
+            </Grid>
+            <Grid item lg={4} md={4} xs={4}>
+                <Grid container style={footerElementsContainerStyle}>
+                    {
+                        rightElements.map((element, key) => {
+                            return <Grid item key={key} style={{ margin: '0 auto' }}>{element}</Grid>
                         })
                     }
                 </Grid>
@@ -32,7 +37,7 @@ const Footer = ({ leftElements, centerElements, rightElements }) => {
     )
 }
 
-// Uses Material UI Design
+
 const styles = {
     footerContainerStyle: {
         backgroundColor: '#ce5a5a',
@@ -42,6 +47,10 @@ const styles = {
         height: '5%',
         borderRadius: 2,
         padding: 3
+    },
+    footerElementsContainerStyle:{
+        textAlign: 'center', 
+        alignSelf: 'center' 
     }
 }
 

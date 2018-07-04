@@ -66,12 +66,14 @@ class Home extends Component {
                     leftElements={[<p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', padding: 3 }}>Italianissimo© 2018</p>]}
                     centerElements={[
                         <a href="#">
-                            <FontAwesome name="facebook" style={{ color: '#fff', fontSize: 15 }} />
+                            <FontAwesome name="facebook" style={{ color: '#fff', fontSize: 15, textAlign: 'center' }} />
                         </a>
                     ]}
                     rightElements={[
-                        <FontAwesome name="phone" style={{ color: '#fff', fontSize: 15 }} />,
-                        <p style={{ color: '#fff', textAlign: 'center', margin:'0 auto' }}>(735)6-13-28</p>
+                        <div>
+                            <FontAwesome name="phone" style={{ color: '#fff', fontSize: 15, display: 'inline' }} />
+                            <p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', display: 'inline' }}>(735)6-13-28</p>
+                        </div>
                     ]}
                 />
             </div>
