@@ -24,6 +24,7 @@ class Home extends Component {
     componentDidMount() {
         navbarEntranceAnimation()
         bannerEntranceAnimation()
+        console.log(this.props.route)
     }
 
 
