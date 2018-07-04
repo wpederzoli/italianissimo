@@ -23,7 +23,7 @@ const Reviews = ({ reviews }) => {
                     >
                         {reviews.map((review, key) => {
                             return (
-                                <div>
+                                <div key={key}>
                                     <h2 style={{ color: '#fff' }}>{review.author_name}</h2>
                                     <div style={{ flexDirection: 'row' }}>
                                         {
