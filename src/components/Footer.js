@@ -7,7 +7,7 @@ const Footer = ({ leftElements, centerElements, rightElements }) => {
         <Grid container style={footerContainerStyle}>
             <Grid item lg={4} md={4} xs={4}>
                 <Grid container style={footerElementsContainerStyle}>
-                    {leftElements ?
+                    {leftElements  ?
                         leftElements.map((el, key) => {
                             return <Grid item key={key} style={{ margin: '0 auto' }}>{el}</Grid>
                         }) :
@@ -17,19 +17,21 @@ const Footer = ({ leftElements, centerElements, rightElements }) => {
             </Grid>
             <Grid item lg={4} md={4} xs={4}>
                 <Grid container style={footerElementsContainerStyle}>
-                    {
+                    {centerElements ?
                         centerElements.map((el, key) => {
                             return <Grid item key={key} style={{ margin: '0 auto' }}>{el}</Grid>
-                        })
+                        }) :
+                        null
                     }
                 </Grid>
             </Grid>
             <Grid item lg={4} md={4} xs={4}>
                 <Grid container style={footerElementsContainerStyle}>
-                    {
+                    {rightElements ?
                         rightElements.map((element, key) => {
                             return <Grid item key={key} style={{ margin: '0 auto' }}>{element}</Grid>
-                        })
+                        }) :
+                        null
                     }
                 </Grid>
             </Grid>

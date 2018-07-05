@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
-import { Home } from './pages';
+import { Home, Menu } from './pages';
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +29,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path='/' render={() => <Home width={this.state.windowSize} /> }/>
+          <Route exact path='/' render={() => <Home width={this.state.windowSize} /> } />
+          <Route path='/menu' render={() => <Menu />} />
         </div>
       </Router>
 
