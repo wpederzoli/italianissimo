@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Navbar, Footer } from '../components'
+import { Navbar, Footer, MenuCompleto } from '../components'
 
 class Menu extends Component {
     constructor(props) {
@@ -11,6 +11,7 @@ class Menu extends Component {
         return (
             <div>
                 <Navbar />
+                    <MenuCompleto />
                 <Footer />
             </div>
         )
