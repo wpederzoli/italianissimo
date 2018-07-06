@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, Banner, Featured, Reviews, Footer } from '../components'
-import { navbarEntranceAnimation, bannerEntranceAnimation } from '../animations'
+import { bannerEntranceAnimation } from '../animations'
 import FontAwesome from 'react-fontawesome'
 
 

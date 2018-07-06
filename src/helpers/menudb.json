@@ -1,0 +1,46 @@
+{
+    "antipasti":[
+        {
+            "id": 0,
+            "name": "Bruschette",
+            "description": "Pan tostado en aceite de oliva, tomatillo cherry y orégano",
+            "price": 50.00
+        },
+        {
+            "id": 1,
+            "name": "Setas al ajillo",
+            "description": "Sazonadas en ajo, peperochini y aceite de oliva",
+            "price": 55.00
+        },
+        {
+            "id": 2,
+            "name": "Panzerotti",
+            "description": "Empanada de pan de pizza rellenas de queso mozarella *Ingrediente extra $10",
+            "price": 50.00
+        },
+        {
+            "id": 3,
+            "name": "Antipasto a la italiana",
+            "description": "Carnes frías, jamón serrano, salami, queso, aceitunas y cherry.",
+            "price": 120.00
+        },
+        {
+            "id": 4,
+            "name": "Carpaccio de jamón serrano",
+            "description": "Jamón serrano bañado con aderezo especial de la casa",
+            "price": 110.00
+        },
+        {
+            "id": 5,
+            "name": "Piadina",
+            "description": "Doblada en pan de pizza rellena de mozarella, serrano y arugula",
+            "price": 70.00
+        },
+        {
+            "id": 6,
+            "name": "Carpaccio de salmón",
+            "description": "Salmón ahumado, bañado con adereso especial de la casa",
+            "price": 110.00
+        }
+    ]
+}

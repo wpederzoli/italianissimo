@@ -7,7 +7,7 @@ const MenuCompleto = () => {
     return (
         <div style={menuContainerStyle}>
             <div style={menuPageContainerStyle}>
-            <img src='./img/fondo-menu.png' style={backgroundImageStyle} />
+            <img alt='fondo-menu' src='./img/fondo-menu.png' style={backgroundImageStyle} />
             </div>
         </div>
     )
@@ -19,7 +19,7 @@ const styles = {
     },
     menuPageContainerStyle: {
         margin: '0 auto',
-        marginTop: '10%',
+        marginTop: 120,
         position: 'relative'
     },
     backgroundImageStyle: {

@@ -11,7 +11,7 @@ const Featured = () => {
                 <Grid item lg={3} md={6} xs={12}>
                     <a href='#' style={{ textDecoration: 'none', color: '#000' }} onMouseEnter={() => growLink('pizzas')} onMouseLeave={() => shrinkLink('pizzas')}>
                         <div style={{ textAlign: 'center', height: 300 }}>
-                            <img id='pizzas' src='../img/pizzas.png' style={{ width: 200, height: 200, borderRadius: 100 }} />
+                            <img alt='pizzas' id='pizzas' src='../img/pizzas.png' style={{ width: 200, height: 200, borderRadius: 100 }} />
                             <h3>Pizzas</h3>
                         </div>
                     </a>
@@ -19,7 +19,7 @@ const Featured = () => {
                 <Grid item lg={3} md={6} xs={12}>
                     <a href='#' style={{ textDecoration: 'none', color: '#000' }} onMouseEnter={() => growLink('pastas')} onMouseLeave={() => shrinkLink('pastas')}>
                         <div style={{ textAlign: 'center', height: 300 }}>
-                            <img id='pastas' src='../img/pasta.png' style={{ width: 200, height: 200, borderRadius: 100 }} />
+                            <img alt='pastas' id='pastas' src='../img/pasta.png' style={{ width: 200, height: 200, borderRadius: 100 }} />
                             <h3>Pastas</h3>
                         </div>
                     </a>
@@ -27,7 +27,7 @@ const Featured = () => {
                 <Grid item lg={3} md={6} xs={12}>
                     <a href='#' style={{ textDecoration: 'none', color: '#000' }} onMouseEnter={() => growLink('ensaladas')} onMouseLeave={() => shrinkLink('ensaladas')}>
                         <div style={{ textAlign: 'center', height: 300 }}>
-                            <img id='ensaladas' src='../img/ensalada.png' style={{ width: 200, height: 200, borderRadius: 100 }} />
+                            <img alt='ensaladas' id='ensaladas' src='../img/ensalada.png' style={{ width: 200, height: 200, borderRadius: 100 }} />
                             <h3>Ensaladas</h3>
                         </div>
                     </a>
@@ -35,7 +35,7 @@ const Featured = () => {
                 <Grid item lg={3} md={6} xs={12}>
                     <a href='#' style={{ textDecoration: 'none', color: '#000' }} onMouseEnter={() => growLink('alhorno')} onMouseLeave={() => shrinkLink('alhorno')}>
                         <div style={{ textAlign: 'center', height: 300 }}>
-                            <img id='alhorno' src='../img/alhorno.png' style={{ width: 200, height: 200, borderRadius: 100 }} />
+                            <img alt='al-horno' id='alhorno' src='../img/alhorno.png' style={{ width: 200, height: 200, borderRadius: 100 }} />
                             <h3>Al Horno</h3>
                         </div>
                     </a>
