@@ -8,11 +8,8 @@ class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            showMenu: false,
-            showFeatured: false,
             reviews: []
         }
-        this.toggleMenu = this.toggleMenu.bind(this)
         this.showSection = this.showSection.bind(this)
         this.setReviews = this.setReviews.bind(this)
     }
@@ -22,16 +19,9 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        navbarEntranceAnimation()
         bannerEntranceAnimation()
-        console.log(this.props.route)
     }
 
-
-    toggleMenu = () => {
-        this.state.showMenu ? this.setState({ showMenu: false }) :
-            this.setState({ showMenu: true })
-    }
 
     showSection = (section, visible) => {
         console.log('this is running ' + visible)
@@ -55,16 +45,12 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Navbar
-                    width={this.props.width}
-                    showMenu={this.state.showMenu}
-                    toggleMenu={() => this.toggleMenu()}
-                />
+                <Navbar />
                 <Banner />
                 <Featured />
                 <Reviews reviews={this.state.reviews} />
                 <Footer
-                    leftElements={[<p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', padding: 3 }}>Italianissimo© 2018</p>]}
+                    leftElements={[<p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', padding: 3 }}>©Italianissimo 2018</p>]}
                     centerElements={[
                         <a href="#">
                             <FontAwesome name="facebook" style={{ color: '#fff', fontSize: 15, textAlign: 'center' }} />
@@ -73,7 +59,7 @@ class Home extends Component {
                     rightElements={[
                         <div>
                             <FontAwesome name="phone" style={{ color: '#fff', fontSize: 15, display: 'inline' }} />
-                            <p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', display: 'inline' }}>(735)6-13-28</p>
+                            <p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', display: 'inline' }}>(735)35-6-13-28</p>
                         </div>
                     ]}
                 />
