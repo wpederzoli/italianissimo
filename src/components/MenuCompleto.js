@@ -21,11 +21,11 @@ const MenuCompleto = ({ categories, fullMenu }) => {
                         <div style={menuPageContainerStyle}>
                             <div key={key} style={{ padding: '5%' }}>
                                 <Grid container>
-                                    <Grid item lg={4} md={4} xs={4} />
-                                    <Grid item lg={4} md={4} xs={4} style={categoryTitleContainer}>
+                                    <Grid item lg={4} md={4} xs={12} />
+                                    <Grid item lg={4} md={4} xs={12} style={categoryTitleContainer}>
                                         <p style={categoryTitle}>{category.toUpperCase()}</p>
                                     </Grid>
-                                    <Grid item lg={4} md={4} xs={4} />
+                                    <Grid item lg={4} md={4} xs={12} />
                                 </Grid>
                                 <Grid container>
                                     {

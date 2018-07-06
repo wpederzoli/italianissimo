@@ -42,5 +42,79 @@
             "description": "Salmón ahumado, bañado con adereso especial de la casa",
             "price": 110.00
         }
+    ],
+    "bruschette":[
+        {
+            "id": 7,
+            "name": "Bruschette Pomodoro",
+            "description": "Tomatillo cherry",
+            "price": 50.00
+        },
+        {
+            "id": 8,
+            "name": "Bruschette Prosciutto",
+            "description": "Jamón serrano",
+            "price": 75.00
+        },
+        {
+            "id": 9,
+            "name": "Bruschette Pomodoro y Parmesano",
+            "description": "",
+            "price": 60.00
+        },
+        {
+            "id": 10,
+            "name": "Bruschette Salami",
+            "description":"",
+            "price": 50.00
+        },
+        {
+            "id": 11,
+            "name": "Bruschette Provolone",
+            "description": "",
+            "price": 60.00
+        },
+        {
+            "id": 12,
+            "name": "Bruschette Atún y Alcaparras",
+            "description": "",
+            "price": 50.00
+        },
+        {
+            "id": 13,
+            "name": "Bruschette Gorgonzola",
+            "description": "",
+            "price": 60.00
+        },
+        {
+            "id": 14,
+            "name": "Bruschette Alcaparras",
+            "description": "",
+            "price": 50.00
+        },
+        {
+            "id": 15,
+            "name": "Bruschette Mozzarella",
+            "description": "",
+            "price": 65.00
+        },
+        {
+            "id": 16,
+            "name": "Bruschette Camarones",
+            "description": "",
+            "price": 70.00
+        },
+        {
+            "id": 17,
+            "name": "Bruschette Jamón",
+            "description": "",
+            "price": 50.00
+        },
+        {
+            "id": 18,
+            "name": "Bruschette Salmón",
+            "description": "",
+            "price": 75.00
+        }
     ]
 }
