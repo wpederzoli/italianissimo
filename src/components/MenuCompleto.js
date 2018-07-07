@@ -40,7 +40,7 @@ const MenuCompleto = ({ categories, fullMenu }) => {
                                                             <p style={menuItemPrice}>${item.price}</p>
                                                         </Grid>
                                                         <Grid item lg={1} md={1} xs={1}>
-                                                            <Button variant='fab' style={addToCartButtonStyle} color='secondary'>+</Button>
+                                                            <Button variant='fab' color='secondary' style={addToCartButtonStyle}>+</Button>
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
@@ -98,10 +98,7 @@ const styles = {
         fontWeight: '600'
     },
     addToCartButtonStyle: { 
-        backgroundColor: '#4da860', 
-        minWidth: '50%', 
-        width:'100%', 
-        height: '100%'  
+        backgroundColor: '#4da860'
     }
 }
 
