@@ -7,7 +7,7 @@ const ShoppingCart = ({ order }) => {
 
     return (
         <div>
-            <Restaurant style={order.length > 0 ? activeCartStyle : cartStyle} />
+            <Restaurant style={order !== undefined && order.length > 0 ? activeCartStyle : cartStyle} />
         </div>
     )
 }
