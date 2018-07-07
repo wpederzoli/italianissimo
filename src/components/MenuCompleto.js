@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Button } from '@material-ui/core'
 
 const MenuCompleto = ({ categories, fullMenu }) => {
 
@@ -10,7 +10,8 @@ const MenuCompleto = ({ categories, fullMenu }) => {
         categoryTitleContainer,
         menuItemTitle,
         menuItemDescription,
-        menuItemPrice
+        menuItemPrice,
+        addToCartButtonStyle
     } = styles
 
     return (
@@ -18,8 +19,8 @@ const MenuCompleto = ({ categories, fullMenu }) => {
             {
                 categories.map((category, key) => {
                     return (
-                        <div style={menuPageContainerStyle}>
-                            <div key={key} style={{ padding: '5%' }}>
+                        <div key={key} style={menuPageContainerStyle}>
+                            <div style={{ padding: '5%' }}>
                                 <Grid container>
                                     <Grid item lg={4} md={4} xs={12} />
                                     <Grid item lg={4} md={4} xs={12} style={categoryTitleContainer}>
@@ -34,7 +35,14 @@ const MenuCompleto = ({ categories, fullMenu }) => {
                                                 <Grid key={key} item lg={6} md={6} xs={12}>
                                                     <p style={menuItemTitle}>{item.name.toUpperCase()}</p>
                                                     <p style={menuItemDescription}>{item.description}</p>
-                                                    <p style={menuItemPrice}>${item.price}</p>
+                                                    <Grid container justify='center' alignItems='center'>
+                                                        <Grid item lg={3} md={3} xs={3}>
+                                                            <p style={menuItemPrice}>${item.price}</p>
+                                                        </Grid>
+                                                        <Grid item lg={1} md={1} xs={1}>
+                                                            <Button variant='fab' style={addToCartButtonStyle} color='secondary'>+</Button>
+                                                        </Grid>
+                                                    </Grid>
                                                 </Grid>
                                             )
                                         })
@@ -88,6 +96,12 @@ const styles = {
         textAlign: 'center',
         color: 'darkgrey',
         fontWeight: '600'
+    },
+    addToCartButtonStyle: { 
+        backgroundColor: '#4da860', 
+        minWidth: '50%', 
+        width:'100%', 
+        height: '100%'  
     }
 }
 
