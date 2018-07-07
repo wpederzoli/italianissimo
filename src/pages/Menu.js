@@ -8,13 +8,23 @@ class Menu extends Component {
         super(props)
         this.state = {
             categories: [],
-            fullMenu:{}
+            fullMenu:{},
+            order: []
         }
         this.setupData = this.setupData.bind(this)
+        this.addToCart = this.addToCart.bind(this)
     }
 
     componentWillMount(){
         this.setupData()
+    }
+
+    addToCart = (item) =>{
+        const all = this.state.order
+        all.push(item)
+        this.setState({
+            order: all
+        })
     }
 
     setupData = () =>{
@@ -29,8 +39,12 @@ class Menu extends Component {
     render() {
         return (
             <div>
-                <Navbar />
-                    <MenuCompleto categories={this.state.categories} fullMenu={this.state.fullMenu} />
+                <Navbar order={this.state.order} />
+                    <MenuCompleto 
+                        categories={this.state.categories} 
+                        fullMenu={this.state.fullMenu}
+                        addItem={this.addToCart} 
+                    />
                 <Footer />
             </div>
         )

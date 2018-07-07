@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { AppBar, Toolbar, IconButton, Drawer, Grid } from '@material-ui/core'
-import { Menu, Restaurant } from '@material-ui/icons'
+import { Menu } from '@material-ui/icons'
 
-import { NavLinks } from '.'
+import { NavLinks, ShoppingCart } from '.'
 import { navbarEntranceAnimation } from '../animations'
 
 class Navbar extends Component {
@@ -35,7 +35,7 @@ class Navbar extends Component {
     }
 
     render() {
-        const { navbarStyle, logoImgStyle, navlinksContainerStyle, navbarMenuIconContainerStyle, menuIconStyle, shopCartContainer, cartStyle } = styles
+        const { navbarStyle, logoImgStyle, navbarMenuIconContainerStyle, menuIconStyle } = styles
 
         return (
             <div>
@@ -46,7 +46,7 @@ class Navbar extends Component {
                                 <img alt='Logo' id='logo' src='./img/logo.png' style={logoImgStyle} />
                             </Grid>
                             <Grid item lg={6} md={6} xs={5} style={{ textAlign: 'center' }}>
-                                <Restaurant style={cartStyle} />
+                                <ShoppingCart order={this.props.order} />
                             </Grid>
                             <Grid item lg={3} md={3} xs={3}>
                                 {
@@ -75,7 +75,6 @@ const styles = {
     navbarMenuIconContainerStyle: { float: 'right' },
     menuIconStyle: { fontSize: 40 },
     shopCartContainer: { width: '100%', textAlign: 'center' },
-    cartStyle: { fontSize: 30, color: 'lightGrey' }
 }
 
 export { Navbar }

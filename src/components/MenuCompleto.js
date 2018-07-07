@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Button } from '@material-ui/core'
 
-const MenuCompleto = ({ categories, fullMenu }) => {
+const MenuCompleto = ({ categories, fullMenu, addItem }) => {
 
     const {
         menuContainerStyle,
@@ -40,7 +40,13 @@ const MenuCompleto = ({ categories, fullMenu }) => {
                                                             <p style={menuItemPrice}>${item.price}</p>
                                                         </Grid>
                                                         <Grid item lg={1} md={1} xs={1}>
-                                                            <Button variant='fab' color='secondary' style={addToCartButtonStyle}>+</Button>
+                                                            <Button 
+                                                                variant='fab' 
+                                                                color='secondary' 
+                                                                style={addToCartButtonStyle}
+                                                                onClick={() => addItem(item)}
+                                                                >+
+                                                            </Button>
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
