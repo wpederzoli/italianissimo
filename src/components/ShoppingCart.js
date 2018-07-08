@@ -19,7 +19,7 @@ const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
                 }
             </Button>
             <Modal open={showOrder} onClose={hideOrder}>
-                <Grid container justify='center' style={{ width: 500, height: 500, margin: '0 auto', marginTop: 100, backgroundColor: '#fff', borderRadius: '5%', border: '1px solid red' }}>
+                <Grid container justify='center' style={{ width: 500, maxHeight: '75%', maxWidth: '100%', margin: '0 auto', marginTop: 100, backgroundColor: '#fff', borderRadius: '5%', border: '1px solid red', outline: 0 }}>
                     <Grid item xs={4}>
                         <p style={{ textAlign: 'center', fontSize: 24, color: 'green', borderBottom: '1px dotted lightcoral' }}>MI PEDIDO</p>
                     </Grid>
