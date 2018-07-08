@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Navbar, Footer, MenuCompleto, ShoppingCartModal } from '../components'
+import { Navbar, Footer, MenuCompleto } from '../components'
 import { getFullMenu } from '../helpers'
 
 class Menu extends Component {

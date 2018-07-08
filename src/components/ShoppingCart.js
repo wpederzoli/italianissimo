@@ -28,7 +28,7 @@ const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
                     {
                         order !== undefined && order.length > 0 ? order.map((item, key) => {
                             return (
-                                <Grid container>
+                                <Grid container key={key}>
                                     <Grid item xs={10}>
                                         <p style={{ textAlign: 'center', fontWeight: '600', color: 'grey' }}>{item.name}</p>
                                     </Grid>
