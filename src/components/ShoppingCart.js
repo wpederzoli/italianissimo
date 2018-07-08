@@ -1,14 +1,14 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
+import { Button, Modal, Grid } from '@material-ui/core'
 import { Restaurant } from '@material-ui/icons'
 
-const ShoppingCart = ({ order }) => {
+const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
 
     const { cartStyle, activeCartStyle } = styles
 
     return (
         <div>
-            <Button variant='fab' disabled={ order !== undefined && order.length > 0 ? false :  true }>
+            <Button variant='fab' disabled={ order !== undefined && order.length > 0 ? false :  true } onClick={onClick}>
                 <Restaurant style={order !== undefined && order.length > 0 ? activeCartStyle : cartStyle} />
                 {
                     order !== undefined && order.length > 0 ?
@@ -18,7 +18,13 @@ const ShoppingCart = ({ order }) => {
                         null
                 }
             </Button>
-
+            <Modal open={showOrder} onClose={hideOrder}>
+                <Grid container justify='center' style={{ width: 500, height: 500, margin: '0 auto', marginTop: 100, backgroundColor: '#fff', borderRadius: '5%', border: '1px solid red' }}>
+                    <Grid item xs={4}>
+                        <p style={{ textAlign: 'center', fontSize: 24, color: 'green', borderBottom: '1px dotted lightcoral' }}>MI PEDIDO</p>
+                    </Grid>
+                </Grid>
+            </Modal>
         </div>
     )
 }

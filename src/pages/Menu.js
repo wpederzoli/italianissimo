@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Navbar, Footer, MenuCompleto } from '../components'
+import { Navbar, Footer, MenuCompleto, ShoppingCartModal } from '../components'
 import { getFullMenu } from '../helpers'
 
 class Menu extends Component {
@@ -9,7 +9,7 @@ class Menu extends Component {
         this.state = {
             categories: [],
             fullMenu:{},
-            order: []
+            order: [],
         }
         this.setupData = this.setupData.bind(this)
         this.addToCart = this.addToCart.bind(this)
@@ -39,7 +39,9 @@ class Menu extends Component {
     render() {
         return (
             <div>
-                <Navbar order={this.state.order} />
+                <Navbar 
+                    order={this.state.order}
+                />
                     <MenuCompleto 
                         categories={this.state.categories} 
                         fullMenu={this.state.fullMenu}

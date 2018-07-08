@@ -11,9 +11,12 @@ class Navbar extends Component {
         this.state = {
             windowSize: window.innerWidth,
             showHamburguer: false,
+            cartModal: false
         }
         this.toggleHamburguer = this.toggleHamburguer.bind(this)
         this.handleResize = this.handleResize.bind(this)
+        this.openCart = this.openCart.bind(this)
+        this.hideCart = this.hideCart.bind(this)
     }
 
     componentDidMount() {
@@ -34,6 +37,15 @@ class Navbar extends Component {
             this.setState({ showHamburguer: true })
     }
 
+    openCart = () =>{
+        console.log('opening cart ' + this.state.cartModal)
+        this.setState({ cartModal: true })
+    }
+
+    hideCart = () =>{
+        this.setState({ cartModal: false })
+    }
+
     render() {
         const { navbarStyle, logoImgStyle, navbarMenuIconContainerStyle, menuIconStyle } = styles
 
@@ -46,7 +58,12 @@ class Navbar extends Component {
                                 <img alt='Logo' id='logo' src='./img/logo.png' style={logoImgStyle} />
                             </Grid>
                             <Grid item lg={6} md={6} xs={5} style={{ textAlign: 'center' }}>
-                                <ShoppingCart order={this.props.order} />
+                                <ShoppingCart 
+                                    order={this.props.order} 
+                                    showOrder={this.state.cartModal}
+                                    hideOrder={this.hideCart}
+                                    onClick={this.openCart} 
+                                />
                             </Grid>
                             <Grid item lg={3} md={3} xs={3}>
                                 {
