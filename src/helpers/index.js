@@ -11,3 +11,11 @@ export const getStarsFromRating = (rating) =>{
 export const getFullMenu = () =>{
     return data
 }
+
+export const getTotalBill = (bill) =>{
+    let total = 0
+    bill.map(item =>{
+        total += item.price
+    })
+    return total
+}

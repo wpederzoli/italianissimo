@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, Modal, Grid } from '@material-ui/core'
 import { Restaurant } from '@material-ui/icons'
 
+import { getTotalBill } from '../helpers'
+
 const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
 
     const {
@@ -50,6 +52,16 @@ const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
                             )
                         }) : null
                     }
+                    <div>
+                        <Grid container>
+                            <Grid item xs={10}>
+                                <p>Total: </p>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <p>${ getTotalBill(order) }</p>
+                            </Grid>
+                        </Grid>
+                    </div>
                     <div style={payButtonContainerStyle}>
                         <Button style={payButtonStyle}>Pagar</Button>
                     </div>
