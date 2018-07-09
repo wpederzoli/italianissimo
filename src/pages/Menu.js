@@ -23,10 +23,10 @@ class Menu extends Component {
         const all = this.state.order
         const index = all.indexOf(item)
         if (index !== -1) {
-            item.cantidad = all[all.indexOf(item)].cantidad + 1
+            item.quantity = all[all.indexOf(item)].quantity + 1
             all.splice(index, 1)
         } else {
-            item.cantidad = 1
+            item.quantity = 1
         }
         all.push(item)
         this.setState({
