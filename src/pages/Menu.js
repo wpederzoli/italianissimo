@@ -8,26 +8,34 @@ class Menu extends Component {
         super(props)
         this.state = {
             categories: [],
-            fullMenu:{},
+            fullMenu: {},
             order: [],
         }
         this.setupData = this.setupData.bind(this)
         this.addToCart = this.addToCart.bind(this)
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.setupData()
     }
 
-    addToCart = (item) =>{
+    addToCart = (item) => {
         const all = this.state.order
+        const index = all.indexOf(item)
+        if (index !== -1) {
+            item.cantidad = all[all.indexOf(item)].cantidad + 1
+            all.splice(index, 1)
+        } else {
+            item.cantidad = 1
+        }
         all.push(item)
         this.setState({
             order: all
         })
+        console.log('this is result: ' + JSON.stringify(this.state.order))
     }
 
-    setupData = () =>{
+    setupData = () => {
         const data = getFullMenu()
         const categories = Object.keys(data)
         this.setState({
@@ -39,14 +47,14 @@ class Menu extends Component {
     render() {
         return (
             <div>
-                <Navbar 
+                <Navbar
                     order={this.state.order}
                 />
-                    <MenuCompleto 
-                        categories={this.state.categories} 
-                        fullMenu={this.state.fullMenu}
-                        addItem={this.addToCart} 
-                    />
+                <MenuCompleto
+                    categories={this.state.categories}
+                    fullMenu={this.state.fullMenu}
+                    addItem={this.addToCart}
+                />
                 <Footer />
             </div>
         )
