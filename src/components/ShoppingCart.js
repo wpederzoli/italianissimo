@@ -4,15 +4,17 @@ import { Restaurant } from '@material-ui/icons'
 
 const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
 
-    const { 
-        cartStyle, 
-        activeCartStyle, 
+    const {
+        cartStyle,
+        activeCartStyle,
         numberOfItemsInCartStyle,
         numberOfItemsInCartText,
         showOrderContainerStyle,
         showOrderTitleStyle,
         showOrderItemNameStyle,
-        showOrderItemPriceStyle 
+        showOrderItemPriceStyle,
+        payButtonContainerStyle,
+        payButtonStyle
     } = styles
 
     return (
@@ -48,6 +50,9 @@ const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
                             )
                         }) : null
                     }
+                    <div style={payButtonContainerStyle}>
+                        <Button style={payButtonStyle}>Pagar</Button>
+                    </div>
                 </div>
             </Modal>
         </div>
@@ -57,36 +62,47 @@ const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
 const styles = {
     cartStyle: { fontSize: 30, color: 'lightGrey' },
     activeCartStyle: { fontSize: 30, color: 'green' },
-    numberOfItemsInCartStyle: { 
-        width: 25, 
-        height: 25, 
-        borderRadius: 25, 
-        backgroundColor: 'red', 
-        position: 'absolute', 
-        bottom: 0, 
-        right: 0 
+    numberOfItemsInCartStyle: {
+        width: 25,
+        height: 25,
+        borderRadius: 25,
+        backgroundColor: 'red',
+        position: 'absolute',
+        bottom: 0,
+        right: 0
     },
     numberOfItemsInCartText: { textAlign: 'center', color: '#fff', margin: '0 auto', fontSize: 15 },
-    showOrderContainerStyle: { 
-        width: 500, 
-        maxHeight: '75%', 
-        maxWidth: '100%', 
-        margin: '0 auto', 
-        marginTop: 100, 
-        backgroundColor: '#fff', 
-        borderRadius: '5%', 
-        border: '1px solid red', 
+    showOrderContainerStyle: {
+        width: 500,
+        maxHeight: '75%',
+        maxWidth: '100%',
+        margin: '0 auto',
+        marginTop: 100,
+        backgroundColor: '#fff',
+        borderRadius: '5%',
+        border: '1px solid red',
         outline: 0,
-        overflowY: 'scroll' 
+        overflowY: 'scroll',
+        position: 'relative'
     },
-    showOrderTitleStyle: { 
-        textAlign: 'center', 
-        fontSize: 24, 
-        color: 'green', 
-        borderBottom: '1px dotted lightcoral' 
+    showOrderTitleStyle: {
+        textAlign: 'center',
+        fontSize: 24,
+        color: 'green',
+        borderBottom: '1px dotted lightcoral'
     },
     showOrderItemNameStyle: { textAlign: 'center', fontWeight: '600', color: 'grey' },
-    showOrderItemPriceStyle: { textAlign: 'center' }
+    showOrderItemPriceStyle: { textAlign: 'center' },
+    payButtonContainerStyle: {
+        position: 'absolute',
+        bottom: '5%',
+        width: '100%',
+        textAlign: 'center'
+    },
+    payButtonStyle:{
+        backgroundColor: '#4da860',
+        color: '#fff'
+    }
 }
 
 export { ShoppingCart }
