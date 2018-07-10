@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button, Modal, Grid } from '@material-ui/core'
 import { Restaurant } from '@material-ui/icons'
+import FontAwesome from 'react-fontawesome'
 
 import { addToCart, hideOrder, displayOrder } from '../Actions'
 import { getTotalBill } from '../helpers'
@@ -27,10 +28,10 @@ class ShoppingCart extends Component {
         const { order, showOrder, hideOrder, displayOrder, items } = this.props
         return (
             <div>
-                <Button variant='fab' disabled={ order.length > 0 ? false : true } onClick={() => displayOrder()}>
-                    <Restaurant style={ order.length > 0 ? activeCartStyle : cartStyle} />
+                <Button variant='fab' disabled={order.length > 0 ? false : true} onClick={() => displayOrder()}>
+                    <Restaurant style={order.length > 0 ? activeCartStyle : cartStyle} />
                     {
-                         order.length > 0 ?
+                        order.length > 0 ?
                             <div style={numberOfItemsInCartStyle}>
                                 <p style={numberOfItemsInCartText}>{items}</p>
                             </div> :
@@ -45,14 +46,24 @@ class ShoppingCart extends Component {
                             </Grid>
                         </Grid>
                         {
-                             order.length > 0 ? order.map((item, key) => {
+                            order.length > 0 ? order.map((item, key) => {
                                 return (
-                                    <Grid container key={key}>
-                                        <Grid item xs={8}>
+                                    <Grid container justify='center' alignItems='center' key={key}>
+                                        <Grid item xs={4}>
                                             <p style={showOrderItemNameStyle}>{item.name}</p>
                                         </Grid>
                                         <Grid item xs={2}>
-                                            <p>x{item.quantity}</p>
+                                            <Button variant='fa' size='small'>
+                                                <FontAwesome name='minus-circle' size='1x' />
+                                            </Button>
+                                        </Grid>
+                                        <Grid item xs={2}>
+                                            <p style={{ textAlign: 'center' }}>x{item.quantity}</p>
+                                        </Grid>
+                                        <Grid item xs={2}>
+                                            <Button variang='fa' size='small'>
+                                                <FontAwesome name='plus-circle' size='1x' />
+                                            </Button>
                                         </Grid>
                                         <Grid item xs={2}>
                                             <p style={showOrderItemPriceStyle}>${item.price * item.quantity}</p>
@@ -62,7 +73,7 @@ class ShoppingCart extends Component {
                             }) : null
                         }
                         {
-                             order.length > 0 ?
+                            order.length > 0 ?
                                 <div>
                                     <Grid container justify='center'>
                                         <Grid item xs={10} style={totalTextStyle}>
