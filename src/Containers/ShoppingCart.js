@@ -24,7 +24,7 @@ class ShoppingCart extends Component {
             totalNumberStyle
         } = styles
 
-        const { order, showOrder, hideOrder, displayOrder } = this.props
+        const { order, showOrder, hideOrder, displayOrder, items } = this.props
         return (
             <div>
                 <Button variant='fab' disabled={ order.length > 0 ? false : true } onClick={() => displayOrder()}>
@@ -32,7 +32,7 @@ class ShoppingCart extends Component {
                     {
                          order.length > 0 ?
                             <div style={numberOfItemsInCartStyle}>
-                                <p style={numberOfItemsInCartText}>{order.length}</p>
+                                <p style={numberOfItemsInCartText}>{items}</p>
                             </div> :
                             null
                     }
@@ -48,11 +48,14 @@ class ShoppingCart extends Component {
                              order.length > 0 ? order.map((item, key) => {
                                 return (
                                     <Grid container key={key}>
-                                        <Grid item xs={10}>
+                                        <Grid item xs={8}>
                                             <p style={showOrderItemNameStyle}>{item.name}</p>
                                         </Grid>
                                         <Grid item xs={2}>
-                                            <p style={showOrderItemPriceStyle}>${item.price}</p>
+                                            <p>x{item.quantity}</p>
+                                        </Grid>
+                                        <Grid item xs={2}>
+                                            <p style={showOrderItemPriceStyle}>${item.price * item.quantity}</p>
                                         </Grid>
                                     </Grid>
                                 )
@@ -141,10 +144,11 @@ const styles = {
 
 
 const mapStateToProps = state => {
-    const { order, showOrder } = state.cart
+    const { order, showOrder, items } = state.cart
     return {
         order,
-        showOrder
+        showOrder,
+        items
     }
 }
 

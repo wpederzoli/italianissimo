@@ -15,7 +15,7 @@ export const getFullMenu = () =>{
 export const getTotalBill = (bill) =>{
     let total = 0
     bill.map(item =>{
-        total += item.price
+        total += (item.price * item.quantity)
     })
     return total
 }
