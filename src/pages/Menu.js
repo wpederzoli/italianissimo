@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import { Navbar, Footer, MenuCompleto } from '../components'
 import { getFullMenu } from '../helpers'
+import { addToCart } from '../Actions'
 
 class Menu extends Component {
     constructor(props) {
@@ -9,30 +11,12 @@ class Menu extends Component {
         this.state = {
             categories: [],
             fullMenu: {},
-            order: [],
         }
         this.setupData = this.setupData.bind(this)
-        this.addToCart = this.addToCart.bind(this)
     }
 
     componentWillMount() {
         this.setupData()
-    }
-
-    addToCart = (item) => {
-        const all = this.state.order
-        const index = all.indexOf(item)
-        if (index !== -1) {
-            item.quantity = all[all.indexOf(item)].quantity + 1
-            all.splice(index, 1)
-        } else {
-            item.quantity = 1
-        }
-        all.push(item)
-        this.setState({
-            order: all
-        })
-        console.log('this is result: ' + JSON.stringify(this.state.order))
     }
 
     setupData = () => {
@@ -45,15 +29,15 @@ class Menu extends Component {
     }
 
     render() {
+        const { addToCart } = this.props
         return (
             <div>
-                <Navbar
-                    order={this.state.order}
-                />
+                <Navbar />
                 <MenuCompleto
                     categories={this.state.categories}
                     fullMenu={this.state.fullMenu}
-                    addItem={this.addToCart}
+                    addItem={addToCart}
+                    order={this.props.order}
                 />
                 <Footer />
             </div>
@@ -61,4 +45,10 @@ class Menu extends Component {
     }
 }
 
-export { Menu }
+const mapStateToProps = state => {
+    return {
+        order: state.cart.order
+    }
+}
+
+export default connect(mapStateToProps, { addToCart })(Menu)

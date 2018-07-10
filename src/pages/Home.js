@@ -1,45 +1,20 @@
 import React, { Component } from 'react'
 import { Navbar, Banner, Featured, Reviews, Footer } from '../components'
+import { connect } from 'react-redux'
 import { bannerEntranceAnimation } from '../animations'
 import FontAwesome from 'react-fontawesome'
 
+import { setReviews } from '../Actions'
+
 
 class Home extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            reviews: []
-        }
-        this.showSection = this.showSection.bind(this)
-        this.setReviews = this.setReviews.bind(this)
-    }
-
+    
     componentWillMount() {
-        this.setReviews()
+        this.props.setReviews()
     }
 
     componentDidMount() {
         bannerEntranceAnimation()
-    }
-
-
-    showSection = (section, visible) => {
-        console.log('this is running ' + visible)
-        switch (section) {
-            case 'featured':
-                this.setState({ showFeatured: true })
-                break
-            default:
-                return
-        }
-    }
-
-    setReviews = async () => {
-        const data = await fetch('http://localhost:1235/proxy?url=https%3A%2F%2Fmaps.googleapis.com%2Fmaps%2Fapi%2Fplace%2Fdetails%2Fjson%3Fplaceid%3DChIJ-RYfc0xszoURCj1q6uzndmM%26key%3DAIzaSyCHpN7D1O9uaVqFQ5lZ5hw48n-r3YEjMO0')
-        const response = await data.json()
-        this.setState({
-            reviews: response.result.reviews
-        })
     }
 
     render() {
@@ -48,7 +23,7 @@ class Home extends Component {
                 <Navbar />
                 <Banner />
                 <Featured />
-                <Reviews reviews={this.state.reviews} />
+                <Reviews reviews={this.props.reviews} />
                 <Footer
                     leftElements={[<p style={{ color: '#fff', textAlign: 'center', margin: '0 auto', padding: 3 }}>©Italianissimo 2018</p>]}
                     centerElements={[
@@ -68,4 +43,10 @@ class Home extends Component {
     }
 }
 
-export { Home }
+const mapStateToProps = state => {
+    return {
+        reviews: state.home.reviews
+    }
+}
+
+export default connect(mapStateToProps, { setReviews })(Home)
