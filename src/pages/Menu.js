@@ -1,59 +1,25 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import { Navbar, Footer, MenuCompleto } from '../components'
-import { getFullMenu } from '../helpers'
+import { addToCart, setupData } from '../Actions'
 
 class Menu extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            categories: [],
-            fullMenu: {},
-            order: [],
-        }
-        this.setupData = this.setupData.bind(this)
-        this.addToCart = this.addToCart.bind(this)
-    }
 
     componentWillMount() {
-        this.setupData()
-    }
-
-    addToCart = (item) => {
-        const all = this.state.order
-        const index = all.indexOf(item)
-        if (index !== -1) {
-            item.quantity = all[all.indexOf(item)].quantity + 1
-            all.splice(index, 1)
-        } else {
-            item.quantity = 1
-        }
-        all.push(item)
-        this.setState({
-            order: all
-        })
-        console.log('this is result: ' + JSON.stringify(this.state.order))
-    }
-
-    setupData = () => {
-        const data = getFullMenu()
-        const categories = Object.keys(data)
-        this.setState({
-            categories,
-            fullMenu: data
-        })
+        this.props.setupData()
     }
 
     render() {
+        const { addToCart } = this.props
         return (
             <div>
-                <Navbar
-                    order={this.state.order}
-                />
+                <Navbar />
                 <MenuCompleto
-                    categories={this.state.categories}
-                    fullMenu={this.state.fullMenu}
-                    addItem={this.addToCart}
+                    categories={this.props.categories}
+                    fullMenu={this.props.fullMenu}
+                    addItem={addToCart}
+                    order={this.props.order}
                 />
                 <Footer />
             </div>
@@ -61,4 +27,13 @@ class Menu extends Component {
     }
 }
 
-export { Menu }
+const mapStateToProps = state => {
+    const { categories, fullMenu } = state.onlineMenu
+    return {
+        order: state.cart.order,
+        categories,
+        fullMenu
+    }
+}
+
+export default connect(mapStateToProps, { addToCart, setupData })(Menu)

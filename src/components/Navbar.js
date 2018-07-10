@@ -3,7 +3,8 @@ import { AppBar, Toolbar, IconButton, Drawer, Grid } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 
-import { NavLinks, ShoppingCart } from '.'
+import { NavLinks } from '.'
+import ShoppingCart from '../Containers/ShoppingCart'
 import { navbarEntranceAnimation } from '../animations'
 
 class Navbar extends Component {
@@ -61,12 +62,7 @@ class Navbar extends Component {
                                 </Link>
                             </Grid>
                             <Grid item lg={6} md={6} xs={5} style={{ textAlign: 'center' }}>
-                                <ShoppingCart
-                                    order={this.props.order}
-                                    showOrder={this.state.cartModal}
-                                    hideOrder={this.hideCart}
-                                    onClick={this.openCart}
-                                />
+                                <ShoppingCart />
                             </Grid>
                             <Grid item lg={3} md={3} xs={3}>
                                 {
