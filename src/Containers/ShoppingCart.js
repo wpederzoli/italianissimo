@@ -24,19 +24,20 @@ class ShoppingCart extends Component {
             totalNumberStyle
         } = styles
 
+        const { order, showOrder, hideOrder, displayOrder } = this.props
         return (
             <div>
-                <Button variant='fab' onClick={() => this.props.displayOrder()}>
-                    <Restaurant style={ this.props.order.length > 0 ? activeCartStyle : cartStyle} />
+                <Button variant='fab' disabled={ order.length > 0 ? false : true } onClick={() => displayOrder()}>
+                    <Restaurant style={ order.length > 0 ? activeCartStyle : cartStyle} />
                     {
-                         this.props.order.length > 0 ?
+                         order.length > 0 ?
                             <div style={numberOfItemsInCartStyle}>
-                                <p style={numberOfItemsInCartText}>{this.props.order.length}</p>
+                                <p style={numberOfItemsInCartText}>{order.length}</p>
                             </div> :
                             null
                     }
                 </Button>
-                <Modal open={this.props.showOrder} onClose={this.props.hideOrder}>
+                <Modal open={showOrder} onClose={hideOrder}>
                     <div style={showOrderContainerStyle}>
                         <Grid container justify='center'>
                             <Grid item xs={4}>
@@ -44,7 +45,7 @@ class ShoppingCart extends Component {
                             </Grid>
                         </Grid>
                         {
-                             this.props.order.length > 0 ? this.props.order.map((item, key) => {
+                             order.length > 0 ? order.map((item, key) => {
                                 return (
                                     <Grid container key={key}>
                                         <Grid item xs={10}>
@@ -58,14 +59,14 @@ class ShoppingCart extends Component {
                             }) : null
                         }
                         {
-                             this.props.order.length > 0 ?
+                             order.length > 0 ?
                                 <div>
                                     <Grid container justify='center'>
                                         <Grid item xs={10} style={totalTextStyle}>
                                             <p>TOTAL: </p>
                                         </Grid>
                                         <Grid item xs={2} style={totalNumberStyle}>
-                                            <p>${getTotalBill(this.props.order)}</p>
+                                            <p>${getTotalBill(order)}</p>
                                         </Grid>
                                     </Grid>
                                 </div>
