@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { AppBar, Toolbar, IconButton, Drawer, Grid } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
+import { Link } from 'react-router-dom'
 
 import { NavLinks, ShoppingCart } from '.'
 import { navbarEntranceAnimation } from '../animations'
@@ -11,7 +12,7 @@ class Navbar extends Component {
         this.state = {
             windowSize: window.innerWidth,
             showHamburguer: false,
-            cartModal: false
+            cartModal: false,
         }
         this.toggleHamburguer = this.toggleHamburguer.bind(this)
         this.handleResize = this.handleResize.bind(this)
@@ -37,12 +38,12 @@ class Navbar extends Component {
             this.setState({ showHamburguer: true })
     }
 
-    openCart = () =>{
+    openCart = () => {
         console.log('opening cart ' + this.state.cartModal)
         this.setState({ cartModal: true })
     }
 
-    hideCart = () =>{
+    hideCart = () => {
         this.setState({ cartModal: false })
     }
 
@@ -55,14 +56,16 @@ class Navbar extends Component {
                     <Toolbar>
                         <Grid container justify='space-between' alignItems='center'>
                             <Grid item lg={3} md={3} xs={4}>
-                                <img alt='Logo' id='logo' src='./img/logo.png' style={logoImgStyle} />
+                                <Link to='/'>
+                                    <img alt='Logo' id='logo' src='./img/logo.png' style={logoImgStyle} />
+                                </Link>
                             </Grid>
                             <Grid item lg={6} md={6} xs={5} style={{ textAlign: 'center' }}>
-                                <ShoppingCart 
-                                    order={this.props.order} 
+                                <ShoppingCart
+                                    order={this.props.order}
                                     showOrder={this.state.cartModal}
                                     hideOrder={this.hideCart}
-                                    onClick={this.openCart} 
+                                    onClick={this.openCart}
                                 />
                             </Grid>
                             <Grid item lg={3} md={3} xs={3}>

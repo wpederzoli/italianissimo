@@ -54,16 +54,20 @@ const ShoppingCart = ({ order, showOrder, hideOrder, onClick }) => {
                             )
                         }) : null
                     }
-                    <div>
-                        <Grid container justify='center'>
-                            <Grid item xs={10} style={totalTextStyle}>
-                                <p>TOTAL: </p>
-                            </Grid>
-                            <Grid item xs={2} style={totalNumberStyle}>
-                                <p>${ getTotalBill(order) }</p>
-                            </Grid>
-                        </Grid>
-                    </div>
+                    {
+                        order !== undefined && order.length > 0 ?
+                            <div>
+                                <Grid container justify='center'>
+                                    <Grid item xs={10} style={totalTextStyle}>
+                                        <p>TOTAL: </p>
+                                    </Grid>
+                                    <Grid item xs={2} style={totalNumberStyle}>
+                                        <p>${getTotalBill(order)}</p>
+                                    </Grid>
+                                </Grid>
+                            </div>
+                            : null
+                    }
                     <div style={payButtonContainerStyle}>
                         <Button style={payButtonStyle}>Pagar</Button>
                     </div>
@@ -113,7 +117,7 @@ const styles = {
         width: '100%',
         textAlign: 'center'
     },
-    payButtonStyle:{
+    payButtonStyle: {
         backgroundColor: '#4da860',
         color: '#fff'
     },
