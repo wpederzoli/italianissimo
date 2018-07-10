@@ -22,7 +22,6 @@ class Navbar extends Component {
     }
 
     componentDidMount() {
-        console.log('this is navs props: ' + JSON.stringify(this.props))
         window.addEventListener("resize", this.handleResize)
         navbarEntranceAnimation()
     }

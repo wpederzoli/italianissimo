@@ -8,10 +8,6 @@ import { getTotalBill } from '../helpers'
 
 class ShoppingCart extends Component {
 
-    componentDidMount(){
-        console.log('this are carts props: ' + JSON.stringify(this.props))
-    }
-
     render() {
         const {
             cartStyle,
@@ -30,7 +26,7 @@ class ShoppingCart extends Component {
 
         return (
             <div>
-                <Button variant='fab' onClick={() => console.log('this is shop: ' + JSON.stringify(this.props))}>
+                <Button variant='fab' onClick={() => this.props.displayOrder()}>
                     <Restaurant style={ this.props.order.length > 0 ? activeCartStyle : cartStyle} />
                     {
                          this.props.order.length > 0 ?
