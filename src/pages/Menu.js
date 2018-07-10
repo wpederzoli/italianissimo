@@ -2,30 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { Navbar, Footer, MenuCompleto } from '../components'
-import { getFullMenu } from '../helpers'
-import { addToCart } from '../Actions'
+import { addToCart, setupData } from '../Actions'
 
 class Menu extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            categories: [],
-            fullMenu: {},
-        }
-        this.setupData = this.setupData.bind(this)
-    }
 
     componentWillMount() {
-        this.setupData()
-    }
-
-    setupData = () => {
-        const data = getFullMenu()
-        const categories = Object.keys(data)
-        this.setState({
-            categories,
-            fullMenu: data
-        })
+        this.props.setupData()
     }
 
     render() {
@@ -34,8 +16,8 @@ class Menu extends Component {
             <div>
                 <Navbar />
                 <MenuCompleto
-                    categories={this.state.categories}
-                    fullMenu={this.state.fullMenu}
+                    categories={this.props.categories}
+                    fullMenu={this.props.fullMenu}
                     addItem={addToCart}
                     order={this.props.order}
                 />
@@ -46,9 +28,12 @@ class Menu extends Component {
 }
 
 const mapStateToProps = state => {
+    const { categories, fullMenu } = state.onlineMenu
     return {
-        order: state.cart.order
+        order: state.cart.order,
+        categories,
+        fullMenu
     }
 }
 
-export default connect(mapStateToProps, { addToCart })(Menu)
+export default connect(mapStateToProps, { addToCart, setupData })(Menu)
