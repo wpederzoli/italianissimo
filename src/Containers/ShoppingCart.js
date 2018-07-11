@@ -4,8 +4,8 @@ import { Button, Modal, Grid } from '@material-ui/core'
 import { Restaurant } from '@material-ui/icons'
 import FontAwesome from 'react-fontawesome'
 
+import { PayPalComponent } from '../components'
 import { addToCart, hideOrder, displayOrder } from '../Actions'
-import { getTotalBill } from '../helpers'
 
 class ShoppingCart extends Component {
 
@@ -25,10 +25,10 @@ class ShoppingCart extends Component {
             totalNumberStyle
         } = styles
 
-        const { order, showOrder, hideOrder, displayOrder, items } = this.props
+        const { order, showOrder, hideOrder, displayOrder, items, total } = this.props
         return (
             <div>
-                <Button variant='fab' disabled={order.length > 0 ? false : true} onClick={() => displayOrder()}>
+                <Button variant='fab' disabled={order.length > 0 ? false : true} onClick={() => displayOrder(order)}>
                     <Restaurant style={order.length > 0 ? activeCartStyle : cartStyle} />
                     {
                         order.length > 0 ?
@@ -53,16 +53,16 @@ class ShoppingCart extends Component {
                                             <p style={showOrderItemNameStyle}>{item.name}</p>
                                         </Grid>
                                         <Grid item xs={2}>
-                                            <Button variant='fa' size='small'>
-                                                <FontAwesome name='minus-circle' size='1x' />
+                                            <Button size='small'>
+                                                <FontAwesome name='minus-circle'/>
                                             </Button>
                                         </Grid>
                                         <Grid item xs={2}>
                                             <p style={{ textAlign: 'center' }}>x{item.quantity}</p>
                                         </Grid>
                                         <Grid item xs={2}>
-                                            <Button variang='fa' size='small'>
-                                                <FontAwesome name='plus-circle' size='1x' />
+                                            <Button  size='small'>
+                                                <FontAwesome name='plus-circle' />
                                             </Button>
                                         </Grid>
                                         <Grid item xs={2}>
@@ -80,15 +80,15 @@ class ShoppingCart extends Component {
                                             <p>TOTAL: </p>
                                         </Grid>
                                         <Grid item xs={2} style={totalNumberStyle}>
-                                            <p>${getTotalBill(order)}</p>
+                                            <p>${total}</p>
                                         </Grid>
                                     </Grid>
                                 </div>
                                 : null
                         }
-                        <div style={payButtonContainerStyle}>
-                            <Button style={payButtonStyle}>Pagar</Button>
-                        </div>
+                        <PayPalComponent 
+                            amount={total}
+                        />
                     </div>
                 </Modal>
             </div>
@@ -155,11 +155,12 @@ const styles = {
 
 
 const mapStateToProps = state => {
-    const { order, showOrder, items } = state.cart
+    const { order, showOrder, items, total } = state.cart
     return {
         order,
         showOrder,
-        items
+        items, 
+        total
     }
 }
 

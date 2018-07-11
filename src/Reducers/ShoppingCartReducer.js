@@ -3,7 +3,8 @@ import { ADD_TO_CART, HIDE_ORDER, DISPLAY_ORDER } from '../Actions/types'
 const INITIAL_STATE = {
     order: [],
     showOrder: false,
-    items: 0
+    items: 0,
+    total: 0
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -13,7 +14,7 @@ export default (state = INITIAL_STATE, action) => {
         case HIDE_ORDER:
             return {...state, showOrder: false}
         case DISPLAY_ORDER:
-            return {...state, showOrder: true}
+            return {...state, showOrder: true, total: action.payload}
         default:
             return state
     }

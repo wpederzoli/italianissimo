@@ -23,8 +23,18 @@ export const hideOrder = () =>{
     }
 }
 
-export const displayOrder = () =>{
+export const displayOrder = (order) =>{
+    const total = getTotalBill(order)
     return{
-        type: DISPLAY_ORDER
+        type: DISPLAY_ORDER,
+        payload: total
     }
+}
+
+const getTotalBill = (order) =>{
+    let total = 0
+    order.map(item =>{
+        total += (item.price * item.quantity)
+    })
+    return total
 }
