@@ -9,6 +9,11 @@ const PayPalComponent = ({ amount }) =>{
             }}
             currency={'MXN'}
             total={amount}
+            style={{
+                label: 'buynow',
+                fundingicons: true,
+                color: 'silver',
+            }}
         />
     )
 }

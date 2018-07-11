@@ -54,14 +54,14 @@ class ShoppingCart extends Component {
                                         </Grid>
                                         <Grid item xs={2}>
                                             <Button size='small'>
-                                                <FontAwesome name='minus-circle'/>
+                                                <FontAwesome name='minus-circle' />
                                             </Button>
                                         </Grid>
                                         <Grid item xs={2}>
                                             <p style={{ textAlign: 'center' }}>x{item.quantity}</p>
                                         </Grid>
                                         <Grid item xs={2}>
-                                            <Button  size='small'>
+                                            <Button size='small'>
                                                 <FontAwesome name='plus-circle' />
                                             </Button>
                                         </Grid>
@@ -86,9 +86,11 @@ class ShoppingCart extends Component {
                                 </div>
                                 : null
                         }
-                        <PayPalComponent 
-                            amount={total}
-                        />
+                        <div style={{ textAlign: 'center' }}>
+                            <PayPalComponent
+                                amount={total}
+                            />
+                        </div>
                     </div>
                 </Modal>
             </div>
@@ -159,7 +161,7 @@ const mapStateToProps = state => {
     return {
         order,
         showOrder,
-        items, 
+        items,
         total
     }
 }
