@@ -10,10 +10,12 @@ const PayPalComponent = ({ amount }) =>{
             currency={'MXN'}
             total={amount}
             style={{
-                label: 'buynow',
+                label: 'pay',
                 fundingicons: true,
                 color: 'silver',
             }}
+            onSuccess={payment => console.log(payment)}
+            onCancel={data => console.log('payment canceled! ' + JSON.stringify(data))}
         />
     )
 }
