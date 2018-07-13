@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PayPalExpressBtn from 'react-paypal-express-checkout'
 
-const PayPalComponent = ({ amount }) =>{
+const PayPalComponent = ({ amount, onSuccess }) =>{
     return(
         <PayPalExpressBtn 
             client={{
@@ -14,7 +14,7 @@ const PayPalComponent = ({ amount }) =>{
                 fundingicons: true,
                 color: 'silver',
             }}
-            onSuccess={payment => console.log(payment)}
+            onSuccess={onSuccess}
             onCancel={data => console.log('payment canceled! ' + JSON.stringify(data))}
         />
     )

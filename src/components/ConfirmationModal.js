@@ -1,10 +1,9 @@
 import React from 'react'
 import { Modal, Grid, Button } from '@material-ui/core'
 
-const ConfirmationModal = ({ show }) => {
-    const success = true
+const ConfirmationModal = ({ show, success }) => {
     return (
-        <Modal open>
+        <Modal open={show}>
             <Grid container justify='center' alignItems='center'>
                 <Grid item xs={6} style={{ backgroundColor: '#fff', borderRadius: 10, border: '1px solid red', padding: 8 }}>
                     <p style={{ fontSize: 18, color: 'grey', textAlign: 'center', fontWeight: '600' }}>

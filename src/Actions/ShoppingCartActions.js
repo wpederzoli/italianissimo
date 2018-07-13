@@ -1,4 +1,4 @@
-import { ADD_TO_CART, HIDE_ORDER, DISPLAY_ORDER } from './types'
+import { ADD_TO_CART, HIDE_ORDER, DISPLAY_ORDER, PAYMENT_SUCCESS } from './types'
 
 export const addToCart = (item, order) => {
     const all = order
@@ -37,4 +37,10 @@ const getTotalBill = (order) =>{
         total += (item.price * item.quantity)
     })
     return total
+}
+
+export const paymentSuccess = () =>{
+    return{
+        type: PAYMENT_SUCCESS
+    }
 }
