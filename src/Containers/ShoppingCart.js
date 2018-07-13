@@ -4,7 +4,7 @@ import { Button, Modal, Grid } from '@material-ui/core'
 import { Restaurant } from '@material-ui/icons'
 import FontAwesome from 'react-fontawesome'
 
-import { PayPalComponent } from '../components'
+import { PayPalComponent, ConfirmationModal } from '../components'
 import { addToCart, hideOrder, displayOrder } from '../Actions'
 
 class ShoppingCart extends Component {
@@ -19,8 +19,6 @@ class ShoppingCart extends Component {
             showOrderTitleStyle,
             showOrderItemNameStyle,
             showOrderItemPriceStyle,
-            payButtonContainerStyle,
-            payButtonStyle,
             totalTextStyle,
             totalNumberStyle
         } = styles
@@ -93,6 +91,7 @@ class ShoppingCart extends Component {
                         </div>
                     </div>
                 </Modal>
+                <ConfirmationModal />
             </div>
         )
     }

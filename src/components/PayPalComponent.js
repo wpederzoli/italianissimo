@@ -5,7 +5,7 @@ const PayPalComponent = ({ amount }) =>{
     return(
         <PayPalExpressBtn 
             client={{
-                sandbox: 'clientID'
+                sandbox: 'AQGTRI3WfHUUPDOxnSPzaz4wiGnNndWVxhVf0Q63qJjhJFyJX28YINYQxm0faHSWYI784BF42NS1WSV1'
             }}
             currency={'MXN'}
             total={amount}
