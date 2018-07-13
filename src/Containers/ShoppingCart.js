@@ -5,7 +5,7 @@ import { Restaurant } from '@material-ui/icons'
 import FontAwesome from 'react-fontawesome'
 
 import { PayPalComponent, ConfirmationModal } from '../components'
-import { addToCart, hideOrder, displayOrder, paymentSuccess } from '../Actions'
+import { addToCart, hideOrder, displayOrder, paymentSuccess, closeConfirmationModal } from '../Actions'
 
 class ShoppingCart extends Component {
 
@@ -23,7 +23,7 @@ class ShoppingCart extends Component {
             totalNumberStyle
         } = styles
 
-        const { order, showOrder, hideOrder, displayOrder, items, total, confirmation, success, paymentSuccess } = this.props
+        const { order, showOrder, hideOrder, displayOrder, items, total, confirmation, success, paymentSuccess, closeConfirmationModal } = this.props
         return (
             <div>
                 <Button variant='fab' disabled={order.length > 0 ? false : true} onClick={() => displayOrder(order)}>
@@ -95,6 +95,7 @@ class ShoppingCart extends Component {
                 <ConfirmationModal 
                     show={confirmation}
                     success={success}
+                    close={() => closeConfirmationModal()}
                 />
             </div>
         )
@@ -171,4 +172,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addToCart, hideOrder, displayOrder, paymentSuccess })(ShoppingCart)
+export default connect(mapStateToProps, { addToCart, hideOrder, displayOrder, paymentSuccess, closeConfirmationModal })(ShoppingCart)

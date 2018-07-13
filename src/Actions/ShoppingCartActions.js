@@ -1,4 +1,4 @@
-import { ADD_TO_CART, HIDE_ORDER, DISPLAY_ORDER, PAYMENT_SUCCESS } from './types'
+import { ADD_TO_CART, HIDE_ORDER, DISPLAY_ORDER, PAYMENT_SUCCESS, CLOSE_CONFIRMATION_MODAL } from './types'
 
 export const addToCart = (item, order) => {
     const all = order
@@ -42,5 +42,11 @@ const getTotalBill = (order) =>{
 export const paymentSuccess = () =>{
     return{
         type: PAYMENT_SUCCESS
+    }
+}
+
+export const closeConfirmationModal = () =>{
+    return{
+        type: CLOSE_CONFIRMATION_MODAL
     }
 }

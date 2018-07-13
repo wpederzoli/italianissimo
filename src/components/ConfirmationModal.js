@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Grid, Button } from '@material-ui/core'
 
-const ConfirmationModal = ({ show, success }) => {
+const ConfirmationModal = ({ show, success, close }) => {
     return (
         <Modal open={show}>
             <Grid container justify='center' alignItems='center'>
@@ -10,7 +10,9 @@ const ConfirmationModal = ({ show, success }) => {
                         {success ? 'Tu pedido ha sido realizado con éxito' : 'Ha habido un problema al solicitar tu pedido'}
                     </p>
                     <div style={{ width: '100%', textAlign: 'center' }}>
-                        <Button style={{ backgroundColor: 'green', color: '#fff' }}>Aceptar</Button>
+                        <Button style={{ backgroundColor: 'green', color: '#fff' }} onClick={close}>
+                            Aceptar
+                        </Button>
                     </div>
                 </Grid>
             </Grid>

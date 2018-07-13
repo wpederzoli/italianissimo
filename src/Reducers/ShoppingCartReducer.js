@@ -1,4 +1,4 @@
-import { ADD_TO_CART, HIDE_ORDER, DISPLAY_ORDER, PAYMENT_SUCCESS } from '../Actions/types'
+import { ADD_TO_CART, HIDE_ORDER, DISPLAY_ORDER, PAYMENT_SUCCESS, CLOSE_CONFIRMATION_MODAL } from '../Actions/types'
 
 const INITIAL_STATE = {
     order: [],
@@ -19,6 +19,8 @@ export default (state = INITIAL_STATE, action) => {
             return {...state, showOrder: true, total: action.payload}
         case PAYMENT_SUCCESS:
             return {...INITIAL_STATE, confirmation: true, success: true}
+        case CLOSE_CONFIRMATION_MODAL:
+            return {...state, confirmation: false}
         default:
             return state
     }
