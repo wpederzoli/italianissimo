@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 const NavLinks = ({ drawer }) => {
     return (
         <div style={drawer ? { display: 'inline-flex' } : null} >
-            <Button id='pedirEnLinea' style={{ float: 'right', backgroundColor: '#f30606ba', color: '#fff' }}>
-                Pedir en Línea
+            <Link to='/pedir-en-linea'>
+                <Button id='pedirEnLinea' style={{ float: 'right', backgroundColor: '#f30606ba', color: '#fff' }}>
+                    Pedir en Línea
             </Button>
+            </Link>
             <Button id='contacto' style={{ float: 'right' }}>
                 Contacto
             </Button>

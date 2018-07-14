@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import Home from './pages/Home'
 import Menu from './pages/Menu'
+import PedirEnLinea from './pages/PedirEnLinea'
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class App extends Component {
         <div>
           <Route exact path='/' render={() => <Home width={this.state.windowSize} /> } />
           <Route path='/menu' render={() => <Menu />} />
+          <Route path='/pedir-en-linea' render={() => <PedirEnLinea />} />
         </div>
       </Router>
 
