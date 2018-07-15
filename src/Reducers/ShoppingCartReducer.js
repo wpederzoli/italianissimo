@@ -16,7 +16,6 @@ export default (state = INITIAL_STATE, action) => {
         case HIDE_ORDER:
             return {...state, showOrder: false}
         case DISPLAY_ORDER:
-            console.log(state)
             return {...state, showOrder: true, total: action.payload}
         case PAYMENT_SUCCESS:
             return {...INITIAL_STATE, order: [], confirmation: true, success: true}
